@@ -1,0 +1,48 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Fabrizio Smeraldi">
+   <meta name="GENERATOR" content="Mozilla/4.74 [en] (X11; U; SunOS 5.7 sun4u) [Netscape]">
+   <meta name="Description" content="A retinotopic sampling grid is obtained by Log-polar mapping in the complex plane. The grid is used to sample the Gabor decomposition of an image.">
+   <meta name="Keywords" content="retina, labelled graphs, retinotopic sampling, nonuniform sampling, Log-polar, Gabor decomposition, Gabor jets">
+		<link rel="stylesheet" type="text/css" href='../../_resources/QMWebSite.css'>
+   <title>Retinotopic Sampling</title>
+</head>
+
+<center>
+<h1>Retinotopic Sampling</h1></center>
+
+<img SRC="retina.gif" height=254 width=258 align=RIGHT>
+<p>Human beings also make use of <b><font color="#2E8B57">non-uniform sampling</font></b> to
+select relevant visual information. The arrangement of photoreceptors in
+the retina is such that the sampling frequency decreases from the centre
+(the <i><font color="#2E8B57">fovea</font></i>) to the periphery.</p>
+<p>We can emulate
+this feature with a <b><font color="#2E8B57">retinotopic sampling grid</font></b>
+obtained by <i><font color="#2E8B57">Log-polar</font></i> mapping in the
+complex plane. Due to the particular construction employed, the density
+of sampling points <i><font color="#2E8B57">decreases exponentially</font></i>
+from the centre to the periphery of the retina.</p>
+<p>In order to have a more accurate modellization of the workings of the
+visual cortex, it is convenient to apply the sampling retina to the Gabor
+decomposition of an image rather than directly to its grey-level values.
+Therefore, <b><font color="#2E8B57">a vector of Gabor responses is extracted
+at each retinal point</font></b>.</p>
+<p>The use of a non-uniform sampling grid allows <b><font color="#2E8B57">focusing
+the computational power</font></b> on he areas of interest in the image.
+Since the grid is made up of a low number of points, computation of Gabor
+responses by direct filtering in the image domain becomes convenient. As
+a consequence, <b><font color="#2E8B57">active vision applications</font></b>are
+now within reach. </p>
+<br>
+<center>
+<p><a href="saccadic.html">Follow this link to the
+Saccadic Search Home Page</a></center></p>
+
+
+<hr WIDTH="100%">
+<br><a href="../../index.html">Back to F. Smeraldi's Home Page</a>
+<br><i>Last modified Feb 11th, 1999</i>
+</body>
+</html>

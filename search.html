@@ -1,0 +1,118 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Fabrizio Smeraldi">
+   <meta name="GENERATOR" content="Mozilla/4.74 [en] (X11; U; SunOS 5.7 sun4u) [Netscape]">
+   <meta name="Description" content="Saccadic Search is an attentional mechanism for Gabor decomposition based pattern recognition. It is inspired by the Human Saccadic System.">
+   <meta name="Keywords" content="Saccadic eye movements, Saccadic system, Saccades, Gabor decomposition, Attentional mechanism, Pattern recognition, Gabor decomposition, Facial Features detection, Support vector machines, SVM">
+   <title>The Saccadic Search algorithm</title>
+<link rel="stylesheet" type="text/css" href='../../_resources/QMWebSite.css'>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#2E8B57" vlink="#551A8B" alink="#FF0000">
+
+<center>
+<h1>The Saccadic Search algorithm</h1></center>
+
+<h2>The Pointwise Model</h2>
+
+<img SRC="face.gif" height=272 width=346 align=RIGHT><font color="#000000">The
+Saccadic Search strategy requires that an appearance-based model of the
+pattern of interest be constructed in the same way as for the common GD
+based algorithm. We will call such a model a <i>pointwise model</i>, since
+it is constructed using a set of filters centred at the same image point.
+In the case of Facial Features Detection we therefore extract a Gabor feature
+vector at the location of the relevant facial features in the images of
+the training set.</font>
+<p><font color="#000000">The example vectors for each facial feature are
+complemented with negative examples picked at random and are used to train
+a Support Vector Machine (SVM) classifier to recognize that feature. In
+our experiments, we used three classifiers to detect the left eye, the
+right eye and the mouth.</font>
+<br>&nbsp;
+<table CELLSPACING=0 CELLPADDING=10 >
+<tr>
+<td><img SRC="saccade.gif" height=272 width=346 align=LEFT></td>
+
+<td>
+<h2>Detection of Features</h2>
+<font color="#000000">The search starts with the retina positioned at a
+random location in the image. Gabor feature vectors are extracted at all
+the retinal points and the classifier that had been trained on the target
+facial feature is used to rate all the possible locations. A saccade is
+then performed to centre the sampling retina on the point that gave the
+best match. Note that, since the density of sampling points increases towards
+the centre of the retina, the search automatically becomes finer. Saccades
+are terminated when a local maximum is reached. The candidate feature thus
+determined is further analysed by means of an extended model.</font></td>
+</tr>
+</table>
+
+<h2>The Extended Model</h2>
+<img SRC="retoneye.gif" HSPACE=10 VSPACE=10 height=272 width=346 align=RIGHT><font color="#000000">The
+accuracy of the saccadic part of the search is limited by the radius of
+the inner circle of the retina. In order to improve accuracy and to reject
+false matches a more accurate model of the facial features of interest
+is needed. This extended model can be obtained by placing the sampling
+retina over the facial features on the images of the training set and extracting
+a set of Gabor responses at each pixel. Gabor filters are arranged so that
+lower frequency channels are employed at the periphery of the retina, where
+the sampling rate is lower, while higher frequency channels are used in
+the fovea. Gabor responses from all the retinal points collected over the
+images of the training set are again used to train a Support Vector Machine
+classifier for each facial feature of interest.</font>
+
+<h2>Refining the Search</h2>
+
+<font color="#000000">The extended model is employed to refine the localisation
+of a facial feature by pixelwise search. Being more discriminating than
+the pointwise model, it is also employed to establish the final score for
+each candidate feature.</font>
+
+<h2>Saccades on Probability</h2>
+
+<font color="#000000">After a candidate facial feature has been detected,
+a saccade is performed to the expected position of the next search target
+based on a probabilistic model. Classifiers are switched so that the algorithms
+now looks for the other facial feature. A final evaluation of the sets
+of candidate facial features is perfomed based on the individual scores
+of their constituents as well as on their relative position.</font>
+<p>
+<hr WIDTH="100%">
+<center>
+<h1>Saccadic Patterns</h1></center>
+
+<table CELLSPACING=0 CELLPADDING=10 >
+<tr>
+<td><img SRC="openeyes.gif" height=353 width=448 align=LEFT></td>
+
+<td VALIGN=TOP><font color="#000000">The two images shown here are examples
+of saccadic patterns obtained when looking for the eyes of a person.</font>
+<p><font color="#000000">Numbers denote the places where saccades were
+started (saccadic patterns that do not appear to converge to any meaningful
+location are automatically abandoned).</font>
+<p><font color="#000000">In this case, after a first unsuccessful attempt
+was abandoned (1), saccades converged to the subject's left eye (2). A
+saccade was then performed to the most probable position of the other eye,
+thus allowing its detection (3).</font></td>
+</tr>
+</table>
+
+<table CELLSPACING=0 CELLPADDING=10 >
+<tr>
+<td VALIGN=BOTTOM>Information from the outline of the orbit makes eye detection
+possible the even in the case the subject's eyes are shut.</td>
+
+<td><img SRC="closedeyes.gif" height=353 width=448></td>
+</tr>
+</table>
+
+<p><font color="#000000">Follow this link for <a href="ffresults.html">more
+results on Eyes and Mouth Detection</a>, or click here for the <a href="saccadic.html">Saccadic
+Search Home Page</a>.</font>
+<p>
+<hr WIDTH="100%">
+<br><a href="../../index.html">Back to F. Smeraldi's Home Page</a>
+<br><i>Last modified Feb 11th, 1999</i>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Fabrizio Smeraldi">
+   <meta name="GENERATOR" content="Mozilla/4.74 [en] (X11; U; SunOS 5.7 sun4u) [Netscape]">
+   <meta name="Description" content="The Gabor features extracted by means of the retinotopic sampling grid constitute reliable biometrics for face authentication. Experimental results on the M2VTS database are presented.">
+   <meta name="Keywords" content="Face authentication, Face recognition, Gabor decomposition, Retinotopic sampling, Log-polar, Support vector machines, SVM, Biometrics, Security, Surveillance">
+<link rel="stylesheet" type="text/css" href='../../_resources/QMWebSite.css'>
+   <title>Face Authentication</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#2E8B57" vlink="#551A8B" alink="#FF0000">
+
+<center>
+<h1>Face Authentication</h1></center>
+
+The Gabor features obtained by placing the <a href="retina.html">retinotopic
+sampling grid</a> over the eyes and the mouth of a subject constitute <i><font color="#2E8B57">reliable
+biometrics</font></i> for face authentication.
+<p>Robust face authentication can be achieved by <i><font color="#2E8B57">fusing</font></i>
+the output of <font color="#2E8B57"><i>three</i> <i>independent experts</i></font>,
+which are implemented by means of <i><font color="#2E8B57">SVM classifiers</font></i>.
+Each of the experts is trained to authenticate the client based on the
+features extracted by placing the retinotopic grid over his left eye, right
+eye or mouth.
+<p>The database used in our experiments is a subset of the first multi-modal
+verification oriented database collected by the <i><a href="http://www.tele.ucl.ac.be/M2VTS/">M2VTS
+consortium</a></i>. It consists of four series of images of 37 people taken
+at different periods of time. Each series contains two to four frontal
+images of each subject. Appearance of subjects varies widely across the
+different series. Tests are performed according to a leave-one-out rotation
+scheme knows as "Brussels Protocol". At each step, one person is removed
+from the database to act as impostor. Also, one entire image series is
+set aside for client tests. The 36 persons remaining act as registered
+clients, and their three image series are available for training. By choosing
+the impostor and the test series in all possible ways, <font color="#2E8B57">36x37x4=5328</font>
+essentially different <i><font color="#2E8B57">client tests</font></i>
+and the same number of <i><font color="#2E8B57">impostor tests</font></i>
+can be generated.
+<p>Experiments performed by manually placing the retinotopic sampling grid
+over the eyes and mouth of the subjects in the M2VTS database indicate
+that <b><font color="#2E8B57">an Equal Error Rate as low as 0.2% can be
+achieved</font></b>. This constitutes a dramatic improvement over other
+techniques, which yielded a 5% EER on the same database.
+<center>
+<p><font color="#2E8B57"><a href="saccadic.html">Follow this link to the
+Saccadic Search Home Page</a></font></center>
+<br>
+<br>
+
+<hr WIDTH="100%">
+<br><a href="../../index.html">Back to F. Smeraldi's Home Page</a>
+<br><i>Last modified Feb 11th, 1999</i>
+</body>
+</html>
